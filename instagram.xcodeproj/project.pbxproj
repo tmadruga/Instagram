@@ -17,6 +17,7 @@
 		AB0E3ED01F0305EA00E6601B /* instagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0E3ECF1F0305EA00E6601B /* instagramTests.swift */; };
 		AB0E3EDB1F0305EA00E6601B /* instagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0E3EDA1F0305EA00E6601B /* instagramUITests.swift */; };
 		AB0E3EE91F03096900E6601B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0E3EE81F03096900E6601B /* LoginViewController.swift */; };
+		AB0E3EEC1F03190C00E6601B /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0E3EEB1F03190C00E6601B /* FeedViewController.swift */; };
 		B66627364D8504CAAACA6E6E /* Pods_instagram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE8E59F5A0858F4D222B83B7 /* Pods_instagram.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		AB0E3EDA1F0305EA00E6601B /* instagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = instagramUITests.swift; sourceTree = "<group>"; };
 		AB0E3EDC1F0305EA00E6601B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB0E3EE81F03096900E6601B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AB0E3EEB1F03190C00E6601B /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		DB8966715B41F1DFCF346D5D /* Pods-instagramTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagramTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-instagramTests/Pods-instagramTests.release.xcconfig"; sourceTree = "<group>"; };
 		DE8E59F5A0858F4D222B83B7 /* Pods_instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -130,10 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				AB0E3EBA1F0305EA00E6601B /* AppDelegate.swift */,
-				AB0E3EBC1F0305EA00E6601B /* ViewController.swift */,
-				AB0E3EBE1F0305EA00E6601B /* Main.storyboard */,
-				AB0E3EE81F03096900E6601B /* LoginViewController.swift */,
+				AB0E3EEA1F0318EC00E6601B /* View Controllers */,
 				AB0E3EC11F0305EA00E6601B /* Assets.xcassets */,
+				AB0E3EBE1F0305EA00E6601B /* Main.storyboard */,
 				AB0E3EC31F0305EA00E6601B /* LaunchScreen.storyboard */,
 				AB0E3EC61F0305EA00E6601B /* Info.plist */,
 			);
@@ -156,6 +157,16 @@
 				AB0E3EDC1F0305EA00E6601B /* Info.plist */,
 			);
 			path = instagramUITests;
+			sourceTree = "<group>";
+		};
+		AB0E3EEA1F0318EC00E6601B /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB0E3EE81F03096900E6601B /* LoginViewController.swift */,
+				AB0E3EBC1F0305EA00E6601B /* ViewController.swift */,
+				AB0E3EEB1F03190C00E6601B /* FeedViewController.swift */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 		D986CBF0925366B4DD0492FB /* Frameworks */ = {
@@ -245,6 +256,7 @@
 				TargetAttributes = {
 					AB0E3EB61F0305EA00E6601B = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 9HHAY8NV6M;
 						ProvisioningStyle = Automatic;
 					};
 					AB0E3ECA1F0305EA00E6601B = {
@@ -451,6 +463,7 @@
 			files = (
 				AB0E3EE91F03096900E6601B /* LoginViewController.swift in Sources */,
 				AB0E3EBD1F0305EA00E6601B /* ViewController.swift in Sources */,
+				AB0E3EEC1F03190C00E6601B /* FeedViewController.swift in Sources */,
 				AB0E3EBB1F0305EA00E6601B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +619,7 @@
 			baseConfigurationReference = 1BA4F7DE9C0BAFE95D02DED4 /* Pods-instagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9HHAY8NV6M;
 				INFOPLIST_FILE = instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiffany.instagram;
@@ -619,6 +633,7 @@
 			baseConfigurationReference = 77742A22C74B77CEA6677DC3 /* Pods-instagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 9HHAY8NV6M;
 				INFOPLIST_FILE = instagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tiffany.instagram;
