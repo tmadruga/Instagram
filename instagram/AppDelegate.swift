@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Welcome Back!")
             
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let feedNavBar = storyboard.instantiateViewController(withIdentifier: "NavBar")
+            let feedNavBar = storyboard.instantiateViewController(withIdentifier: "UITabBar")
             window?.rootViewController = feedNavBar
             
         }

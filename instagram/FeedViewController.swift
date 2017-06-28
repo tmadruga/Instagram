@@ -9,10 +9,9 @@
 import UIKit
 import Parse
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
@@ -25,14 +24,15 @@ class FeedViewController: UIViewController {
     @IBAction func logOutButton(_ sender: Any) {
         PFUser.logOutInBackground { (error: Error?) in
             print("user has logged out")
-            
+//            self.dismiss(animated: true, completion: nil)
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let userVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginViewController") as! LoginViewController
             self.present(userVC, animated: true, completion: nil)
             
         }
         }
-        
+    
+
     
 
     /*
@@ -46,3 +46,4 @@ class FeedViewController: UIViewController {
     */
 
 }
+
