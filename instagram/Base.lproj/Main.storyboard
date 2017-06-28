@@ -97,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yhd-cN-P64" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1696.8" y="35.532233883058474"/>
+            <point key="canvasLocation" x="833" y="968"/>
         </scene>
         <!--Home-->
         <scene sceneID="eKd-rN-ij3">
@@ -116,7 +116,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ncp-ll-3xi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="832.79999999999995" y="35.532233883058474"/>
+            <point key="canvasLocation" x="833" y="36"/>
         </scene>
         <!--New Post-->
         <scene sceneID="1O1-us-bLf">
@@ -176,6 +176,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Post" id="Cmy-Vo-XAd"/>
                     <connections>
+                        <outlet property="captionField" destination="H87-hg-I4I" id="fFs-eN-WTP"/>
                         <outlet property="postImage" destination="G3s-na-Tbw" id="du8-lK-SMn"/>
                     </connections>
                 </viewController>
@@ -186,7 +187,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2623" y="36"/>
+            <point key="canvasLocation" x="2010" y="967"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8hu-uz-gRk">
@@ -194,6 +195,7 @@
                 <tabBarController storyboardIdentifier="UITabBar" automaticallyAdjustsScrollViewInsets="NO" id="MQI-zs-f6f" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="H0E-BB-by5">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -203,7 +205,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgg-Ys-tIP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-106.40000000000001" y="35.532233883058474"/>
+            <point key="canvasLocation" x="36" y="36"/>
         </scene>
     </scenes>
 </document>

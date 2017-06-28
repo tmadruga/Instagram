@@ -10,9 +10,12 @@ import UIKit
 import Parse
 
 
+
 class NewPostViewController: UIViewController, UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
 
     @IBOutlet weak var postImage: UIImageView!
+    @IBOutlet weak var captionField: UITextField!
+    
     
     var userImage: UIImage?
     
@@ -58,7 +61,6 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         
         
-        
     }
     
     @IBAction func onTap(_ sender: Any) {
@@ -89,8 +91,8 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
         
-        let resizedEditedImage = resize(image: editedImage, newsize: CGSize(width: 750, height: 750))
-        postImage.image = resizedEditedImage
+        userImage = resize(image: editedImage, newsize: CGSize(width: 750, height: 750))
+        postImage.image = userImage
         
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
@@ -98,12 +100,51 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
    
     
     @IBAction func onPost(_ sender: Any) {
+       
+        if self.userImage == nil{
+            print("Error")
+            let networkalertController = UIAlertController(title: "No Photo Uploaded", message: "Please upload an image and try again.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                // handle cancel response here. Doing nothing will dismiss the view.
+            }
+            // add the cancel action to the alertController
+            networkalertController.addAction(cancelAction)
+            self.present(networkalertController, animated: true) {
+                // optional code for what happens after the alert controller has finished presenting
+            }
         
+            
+            
+        }else{
         
+        Post.postUserImage(image: userImage!, withCaption: captionField.text) { (SuccessBool: Bool, Error:Error?) in
+
+            
+            if SuccessBool == true && Error == nil{
+                print("Sucess")
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let userVC = mainStoryboard.instantiateViewController(withIdentifier: "UITabBar")
+                self.present(userVC, animated: true, completion: nil)
+            }
+            
+            
+            else{
+                print("Error")
+                let networkalertController = UIAlertController(title: "Error trying to Post", message: "Please try again later.", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                networkalertController.addAction(cancelAction)
+                self.present(networkalertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+
         
-        
-        
-        
+            }
+        }
+ 
+    }
     }
 
     
