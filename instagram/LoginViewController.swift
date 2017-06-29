@@ -15,11 +15,20 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
+    @IBOutlet weak var signinButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameField.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)
+        passwordField.backgroundColor = UIColor(red: 255, green: 255, blue: 255, alpha: 0.3)
+        passwordField.layer.borderColor = UIColor.white.cgColor
+        signinButton.backgroundColor = .clear
+        signinButton.layer.cornerRadius = 5
+        signinButton.layer.borderWidth = 1
+        signinButton.layer.borderColor = UIColor.white.cgColor
+        
 
         // Do any additional setup after loading the view.
     }
@@ -30,6 +39,8 @@ class LoginViewController: UIViewController {
     }
     
 
+    
+
     @IBAction func signIn(_ sender: Any) {
         
         
@@ -37,6 +48,16 @@ class LoginViewController: UIViewController {
             
             if let error = error {
                 print("User log in failed: \(error.localizedDescription)")
+                let networkalertController = UIAlertController(title: "Username or Password Incorrect", message: "Please try again.", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                networkalertController.addAction(cancelAction)
+                self.present(networkalertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
+
             } else {
                 print("User logged in successfully")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
@@ -48,6 +69,10 @@ class LoginViewController: UIViewController {
         
     
     
+    @IBAction func onTap(_ sender: Any) {
+        
+        view.endEditing(true)
+    }
     
     @IBAction func onSignUp(_ sender: Any) {
         let newUser = PFUser()
@@ -57,6 +82,15 @@ class LoginViewController: UIViewController {
         newUser.signUpInBackground{ (success: Bool, error: Error?) in
             if let error = error {
                 print(error.localizedDescription)
+                let networkalertController = UIAlertController(title: "Username already taken", message: "Please enter and username and password to sign up.", preferredStyle: .alert)
+                let cancelAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    // handle cancel response here. Doing nothing will dismiss the view.
+                }
+                // add the cancel action to the alertController
+                networkalertController.addAction(cancelAction)
+                self.present(networkalertController, animated: true) {
+                    // optional code for what happens after the alert controller has finished presenting
+                }
             } else {
                 print("Yay! Created a user!")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)

@@ -11,6 +11,7 @@ import Parse
 
 class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
    
+    @IBOutlet weak var instaCell: InstaCell!
     
 
     @IBOutlet weak var feedTableView: UITableView!
@@ -99,11 +100,16 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let cell = sender as! UITableViewCell
-        if let IndexPath = feedTableView.indexPath(for: cell){
-            let onepost = feed![IndexPath.row]
-            let DetailViewController = segue.destination as! DetailViewController
-            DetailViewController.postDetail = onepost
+        
+        if segue.identifier == "cellSegue"{
+            let newcell = sender as! UITableViewCell
+            if let IndexPath = feedTableView.indexPath(for: newcell){
+                let onepost = feed![IndexPath.row]
+                let DetailViewController = segue.destination as! DetailViewController
+                DetailViewController.postDetail = onepost
+        
+        }
+        
         }
         
         

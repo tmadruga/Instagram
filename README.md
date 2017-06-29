@@ -14,8 +14,8 @@ The following **required** functionality is completed:
 - [x] User can take a photo, add a caption, and post it to "Instagram"
 - [x] User can view the last 20 posts submitted to "Instagram"
 - [x] User can pull to refresh the last 20 posts submitted to "Instagram"
-- [ ] User sees app icon in home screen and styled launch screen
-- [ ] User can tap a post to view post details, including timestamp and caption.
+- [x] User sees app icon in home screen and styled launch screen
+- [x] User can tap a post to view post details, including timestamp and caption.
 
 The following **optional** features are implemented:
 
@@ -52,6 +52,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- Lock icon by Appzgear taken from Flaticon (http://www.flaticon.com/free-icon/lock-icon_26053) 
 
 
 ## Notes
