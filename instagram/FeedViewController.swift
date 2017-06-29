@@ -74,7 +74,6 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let cell = tableView.dequeueReusableCell(withIdentifier: "InstaCell", for: indexPath) as! InstaCell
         let post = feed![indexPath.row]
         
-        
         let author = post["author"] as? PFUser
         let username = author?.username
         cell.usernameLabel.text = username
@@ -97,6 +96,19 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
         // Do any additional setup after loading the view.
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let cell = sender as! UITableViewCell
+        if let IndexPath = feedTableView.indexPath(for: cell){
+            let onepost = feed![IndexPath.row]
+            let DetailViewController = segue.destination as! DetailViewController
+            DetailViewController.postDetail = onepost
+        }
+        
+        
+    }
+    
     
 
     override func didReceiveMemoryWarning() {
