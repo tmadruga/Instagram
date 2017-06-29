@@ -6,6 +6,7 @@ target 'instagram' do
   use_frameworks!
 
   pod 'Parse'
+  pod 'ParseUI'
 
   target 'instagramTests' do
     inherit! :search_paths

@@ -9,12 +9,82 @@
 import UIKit
 import Parse
 
-class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
+   
+    
 
+    @IBOutlet weak var feedTableView: UITableView!
+    
+    var feed: [PFObject]? = []
+    
+    
     override func viewDidLoad() {
+        
+        feedTableView.dataSource = self
+        feedTableView.delegate = self
+        fetchFeed()
+        
+
+    }
+    
+    func fetchFeed(){
+    
+        // construct PFQuery
+        let query = PFQuery(className: "Post")
+        query.order(byDescending: "createdAt")
+        query.includeKey("author")
+        query.limit = 20
+        
+        // fetch data asynchronously
+        query.findObjectsInBackground { (posts: [PFObject]?, error: Error?) in
+            if let posts = posts {
+                self.feed = posts
+                self.feedTableView.reloadData()
+            } else {
+                print("error")
+            }
+        }
+
+    
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return feed!.count
+        
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "InstaCell", for: indexPath) as! InstaCell
+        let post = feed![indexPath.row]
+        
+        
+        let author = post["author"] as? PFUser
+        let username = author?.username
+        cell.usernameLabel.text = username
+        if post["caption"] == nil{
+            cell.feedCaptionLabel.text = "\(" ")"
+        }else{
+        cell.feedCaptionLabel.text = "\(post["caption"]!)"
+        }
+        cell.likesLabel.text = "\(post["likesCount"]!)"
+        cell.instagramPost = post
+        
+        
+        
+        
+        
+        
+        return cell
+        
+    }
+    
 
         // Do any additional setup after loading the view.
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,6 +100,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             self.present(userVC, animated: true, completion: nil)
             
         }
+        
         }
     
 
