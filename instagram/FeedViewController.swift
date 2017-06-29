@@ -16,15 +16,27 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var feedTableView: UITableView!
     
     var feed: [PFObject]? = []
+    var refreshControl: UIRefreshControl!
     
     
     override func viewDidLoad() {
+            super.viewDidLoad()
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(FeedViewController.didPullToRefresh(_:)), for: .valueChanged)
+        feedTableView.insertSubview(refreshControl, at: 0)
         
         feedTableView.dataSource = self
         feedTableView.delegate = self
         fetchFeed()
         
+        
+        
 
+    }
+    
+    func didPullToRefresh(_ refreshControl: UIRefreshControl){
+        fetchFeed()
     }
     
     func fetchFeed(){
@@ -40,6 +52,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             if let posts = posts {
                 self.feed = posts
                 self.feedTableView.reloadData()
+                self.refreshControl.endRefreshing()
             } else {
                 print("error")
             }
@@ -102,6 +115,7 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
         }
+    
     
 
     
