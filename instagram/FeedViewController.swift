@@ -81,7 +81,8 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if post["caption"] == nil{
             cell.feedCaptionLabel.text = "\(" ")"
         }else{
-        cell.feedCaptionLabel.text = "\(post["caption"]!)"
+        
+            cell.feedCaptionLabel.text = "\(username!) \(post["caption"]!)"
         }
         cell.likesLabel.text = "\(post["likesCount"]!)"
         cell.instagramPost = post
