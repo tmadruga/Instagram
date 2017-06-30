@@ -35,6 +35,21 @@ class Post: NSObject {
         // Save object (following function will save the object in Parse asynchronously)
         post.saveInBackground(block: completion)
     }
+   
+    /**
+     Method to set user profile
+    */
+    
+    class func postUserProfile(image: UIImage, completion: PFBooleanResultBlock?) {
+        // Create Parse object PFObject
+        let profile = PFObject(className: "Profile")
+        
+        // Add relevant fields to the object
+        profile["media"] = getPFFileFromImage(image: image) // PFFile column type
+        profile["author"] = PFUser.current() // Pointer column type that points to PFUser
+        // Save object (following function will save the object in Parse asynchronously)
+        profile.saveInBackground(block: completion)
+    }
     
     /**
      Method to convert UIImage to PFFile

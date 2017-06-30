@@ -19,6 +19,8 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var userImage: UIImage?
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
