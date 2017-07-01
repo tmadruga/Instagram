@@ -18,8 +18,16 @@ class InstaCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var feedCaptionLabel: UILabel!
     
+    @IBOutlet weak var profilePicture: PFImageView!
     
     var instagramPost: PFObject! {
+        didSet {
+            self.feedPhoto.file = instagramPost["media"] as? PFFile
+            self.feedPhoto.loadInBackground()
+        }
+    }
+    
+    var userProfilePicture: PFObject! {
         didSet {
             self.feedPhoto.file = instagramPost["media"] as? PFFile
             self.feedPhoto.loadInBackground()

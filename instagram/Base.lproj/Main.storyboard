@@ -138,7 +138,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-fX-4El">
-                                                    <rect key="frame" x="48" y="0.0" width="259" height="45"/>
+                                                    <rect key="frame" x="58" y="0.0" width="259" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Name">
@@ -154,10 +154,6 @@
                                                     <rect key="frame" x="0.0" y="44" width="375" height="339"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="2Ng-7L-5cl">
-                                                    <rect key="frame" x="13" y="8" width="25" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Caption" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="607-Q8-hTE">
                                                     <rect key="frame" x="26" y="386" width="242" height="45"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -165,12 +161,17 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="70S-gV-7qc" customClass="PFImageView">
+                                                    <rect key="frame" x="8" y="0.0" width="42" height="41"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="feedCaptionLabel" destination="607-Q8-hTE" id="mqX-2M-g4P"/>
                                             <outlet property="feedPhoto" destination="ub3-Zi-6zj" id="eGk-At-2KH"/>
                                             <outlet property="likesLabel" destination="otT-OI-Avg" id="Sam-Tn-syo"/>
+                                            <outlet property="profilePicture" destination="70S-gV-7qc" id="nA1-61-955"/>
                                             <outlet property="usernameLabel" destination="9tI-fX-4El" id="AMz-dn-8w4"/>
                                             <segue destination="AgQ-ll-2hR" kind="show" identifier="cellSegue" id="Wl1-uC-lvq"/>
                                         </connections>
@@ -318,7 +319,7 @@
                             <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aru-5j-t3I" customClass="PFImageView">
                                 <rect key="frame" x="16" y="80" width="93" height="93"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.72521043707766097" green="0.72170700501448382" blue="0.72871386914083802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="dgZ-bg-pSI" appends="YES" id="cBN-r6-YQW"/>

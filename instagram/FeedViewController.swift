@@ -8,11 +8,10 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDataSource, UITableViewDelegate {
    
-    @IBOutlet weak var instaCell: InstaCell!
-    
 
     @IBOutlet weak var feedTableView: UITableView!
     
@@ -63,6 +62,26 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
+//    func fetchProfile(){
+//        
+//        // construct PFQuery
+//        let query = PFQuery(className: "Profile")
+//        query.order(byDescending: "createdAt")
+//        query.includeKey("author")
+//        query.whereKey("author", equalTo: PFUser.current())
+//        
+//        // fetch data asynchronously
+//        query.getFirstObjectInBackground { (profiles: PFObject?, error: Error?) in
+//            if let profiles = profiles {
+//                
+//            } else {
+//                print("error")
+//            }
+//        }
+//        
+//    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return feed!.count
@@ -82,10 +101,11 @@ class FeedViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             cell.feedCaptionLabel.text = "\(" ")"
         }else{
         
-            cell.feedCaptionLabel.text = "\(username!) \(post["caption"]!)"
+            cell.feedCaptionLabel.text = "\(username!): \(post["caption"]!)"
         }
         cell.likesLabel.text = "\(post["likesCount"]!)"
         cell.instagramPost = post
+        
         
         
         
